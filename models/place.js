@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
  
 var placeSchema = new Schema({
     name:  String,
-    desciption: String
+    description: String
 });
  
 module.exports = mongoose.model('Place', placeSchema);

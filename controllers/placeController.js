@@ -5,12 +5,30 @@ exports.list = function(req, res) {
     res.send(places);
   });
 }
-//corregir
+exports.show = function(req, res){
+    var id = req.params.id;
+    Place.findById(id,function(err, place){
+        res.send(place);
+    });
+}
 exports.post = function(req, res) {
-    var name = req.params[0];
-    var description = req.params[1];
-    console.log(name);
-    console.log(description);
-    res.send(new Place({name: name, description: description}).save());
-  
+    var name = req.query.name;
+    var description = req.query.description;        
+    new Place({name: name, description: description}).save(function(err,place){
+        res.send(place);
+    }); 
+}
+exports.edit = function(req, res) {
+    var id = req.params.id;
+    var name = req.query.name;
+    var description = req.query.description;
+    Place.findByIdAndUpdate(id,{name: name, description: description},function(err,place){
+        res.send(place);
+    }); 
+}
+exports.destroy = function(req, res){
+    var id = req.params.id;
+    Place.findById(id).remove(function(err, place){
+        res.send();
+    });
 }

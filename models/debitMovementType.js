@@ -3,7 +3,7 @@ var mongoose = require('mongoose')
  
 var debitMovementTypeSchema = new Schema({
     name:  String,
-    desciption: String,
+    description: String,
     sign: Number
 });
  
