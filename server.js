@@ -38,38 +38,38 @@ app.put('/place/:id', place.edit);
 app.post('/place', place.post);
 app.delete('/place/:id', place.destroy);
 
-var DMT = require('./controllers/debitMovementTypeController.js');
+var account = require('./controllers/accountController.js');
 
-app.get('/debitmovementtype', DMT.list);
-app.get('/debitmovementtype/:id', DMT.show);
-app.put('/debitmovementtype/:id', DMT.edit);
-app.post('/debitmovementtype', DMT.post);
-app.delete('/debitmovementtype/:id', DMT.destroy);
+app.get('/account', account.list);
+app.get('/account/listType/:listType', account.listType);
+app.get('/account/:id', account.show);
+app.put('/account/:id', account.edit);
+app.post('/account', account.post);
+app.delete('/account/:id', account.destroy);
 
-var dCard = require('./controllers/debitCardController.js');
+var accountType = require('./controllers/accountTypeController.js');
 
-app.get('/debitcard', dCard.list);
-app.get('/debitcard/:id', dCard.show);
-app.get('/debitcard/:id/movements', dCard.movements);
-app.put('/debitcard/:id', dCard.edit);
-app.post('/debitcard', dCard.post);
-app.delete('/debitcard/:id', dCard.destroy);
+app.get('/accountType', accountType.list);
+app.get('/accountType/:id', accountType.show);
+app.post('/accountType', accountType.post);
 
-var cCard = require('./controllers/creditCardController.js');
+var transactionType = require('./controllers/transactionTypeController.js');
 
-app.get('/creditcard', cCard.list);
-app.get('/creditcard/:id', cCard.show);
-app.put('/creditcard/:id', cCard.edit);
-app.post('/creditcard', cCard.post);
-app.delete('/creditcard/:id', cCard.destroy);
+app.get('/transactionType', transactionType.list);
+app.get('/transactionType/listType/:listType', transactionType.listType);
+app.get('/transactionType/:id', transactionType.show);
+app.put('/transactionType/:id', transactionType.edit);
+app.post('/transactionType', transactionType.post);
+app.delete('/transactionType/:id', transactionType.destroy);
 
-var dMovement = require('./controllers/debitMovementController.js');
+var transaction = require('./controllers/transactionController.js');
 
-app.get('/debitmovement', dMovement.list);
-app.get('/debitmovement/:id', dMovement.show);
-app.put('/debitmovement/:id', dMovement.edit);
-app.post('/debitmovement', dMovement.post);
-app.delete('/debitmovement/:id', dMovement.destroy);
+app.get('/transaction', transaction.list);
+app.get('/transaction/listAccount/:listAccount', transaction.listAccount);
+app.get('/transaction/:id', transaction.show);
+app.put('/transaction/:id', transaction.edit);
+app.post('/transaction', transaction.post);
+app.delete('/transaction/:id', transaction.destroy);
 
 app.use(function(req, res, next){
   res.status(404);
@@ -83,4 +83,3 @@ app.use(function(req, res, next){
 
 app.listen(3000);
 console.log("Express server listening on port 3000");
-

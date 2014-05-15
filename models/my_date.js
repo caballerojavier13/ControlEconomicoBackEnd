@@ -1,10 +1,10 @@
 var mongoose = require('mongoose')
   , Schema = mongoose.Schema;
  
-var dateSchema = new Schema({
+var my_dateSchema = new Schema({
     day: Number,
     month: Number,
     year: Number
 });
  
-module.exports = mongoose.model('My_Date', dateSchema);
+module.exports = mongoose.model('My_Date', my_dateSchema);
