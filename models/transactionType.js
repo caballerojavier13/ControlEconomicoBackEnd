@@ -6,7 +6,7 @@ var transactionTypeSchema = new Schema({
     sign: Number,
     allowPlace: Boolean,
     allowConcept: Boolean,
-    cashAffect: Boolean,
+    automaticTransaction: Boolean,
     id_AccountType : { type: Schema.Types.ObjectId, ref: 'AccountType' }
 });
  

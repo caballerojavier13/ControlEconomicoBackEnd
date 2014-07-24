@@ -3,7 +3,10 @@ var mongoose = require('mongoose')
  
 var accountTypeSchema = new Schema({
     name:  String,
-    description: String
+    nameBalance1: String,
+    nameBalance2: String,
+    allowBalance2: Boolean,
+    normalOperation: Boolean,
 });
  
 module.exports = mongoose.model('AccountType', accountTypeSchema);

@@ -1,0 +1,46 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/javier/.Programs/node-v0.10.26/bin/node',
+1 verbose cli   '/home/javier/.Programs/node-v0.10.26/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g' ]
+2 info using npm@1.4.3
+3 info using node@v0.10.26
+4 verbose cache add [ '.', null ]
+5 verbose cache add name=undefined spec="." args=[".",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: '.',
+6 verbose parsed url   path: '.',
+6 verbose parsed url   href: '.' }
+7 silly lockFile 3a52ce78- .
+8 verbose lock . /home/javier/.npm/3a52ce78-.lock
+9 silly lockFile 3a52ce78- .
+10 silly lockFile 3a52ce78- .
+11 error addLocal Could not install .
+12 error Error: Invalid version: "1.0,0"
+12 error     at Object.module.exports.fixVersionField (/home/javier/.Programs/node-v0.10.26/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/fixer.js:185:13)
+12 error     at /home/javier/.Programs/node-v0.10.26/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js:29:38
+12 error     at Array.forEach (native)
+12 error     at normalize (/home/javier/.Programs/node-v0.10.26/lib/node_modules/npm/node_modules/read-package-json/node_modules/normalize-package-data/lib/normalize.js:28:15)
+12 error     at final (/home/javier/.Programs/node-v0.10.26/lib/node_modules/npm/node_modules/read-package-json/read-json.js:328:33)
+12 error     at then (/home/javier/.Programs/node-v0.10.26/lib/node_modules/npm/node_modules/read-package-json/read-json.js:126:33)
+12 error     at /home/javier/.Programs/node-v0.10.26/lib/node_modules/npm/node_modules/read-package-json/read-json.js:317:40
+12 error     at fs.js:266:14
+12 error     at /home/javier/.Programs/node-v0.10.26/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:105:5
+12 error     at Object.oncomplete (fs.js:107:15)
+13 error If you need help, you may report this *entire* log,
+13 error including the npm and node versions, at:
+13 error     <http://github.com/npm/npm/issues>
+14 error System Linux 3.2.0-64-generic-pae
+15 error command "/home/javier/.Programs/node-v0.10.26/bin/node" "/home/javier/.Programs/node-v0.10.26/bin/npm" "install" "-g"
+16 error cwd /home/javier/Proyectos/ControlEconomicoBackEnd
+17 error node -v v0.10.26
+18 error npm -v 1.4.3
+19 verbose exit [ 1, true ]

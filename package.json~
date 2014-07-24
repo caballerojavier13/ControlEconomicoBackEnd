@@ -1,0 +1,13 @@
+{
+  "name": "ControlEconomicoBackEnd",
+  "description": "Back end de la aplicación de contról económico hogareño.",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "jade": "*",
+    "connect": "*",
+    "mongoose": "3.8.12",
+    "nodemon": "1.2.1"
+  }
+}

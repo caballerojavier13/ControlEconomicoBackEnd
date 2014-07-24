@@ -4,9 +4,13 @@ var mongoose = require('mongoose');
  
 // connect to Mongo when the app initializes
 //mongoose.connect('mongodb://root:root@ds030607.mongolab.com:30607/controleconomico');
-mongoose.connect('mongodb://localhost/controleconomico');
-
+mongoose.connect('mongodb://localhost/controleconomico', function(err) {
+    if (err){
+      console.log("Error al concectar con la base de datos.");
+    }
+});
 var app = express();
+app.use(express.bodyParser());
 
 app.use(function (req, res, next) {
 
@@ -41,6 +45,8 @@ app.delete('/place/:id', place.destroy);
 var account = require('./controllers/accountController.js');
 
 app.get('/account', account.list);
+app.get('/account/normal', account.listNormal);
+app.get('/account/no_normal', account.listNoNormal);
 app.get('/account/listType/:listType', account.listType);
 app.get('/account/:id', account.show);
 app.put('/account/:id', account.edit);
@@ -50,12 +56,16 @@ app.delete('/account/:id', account.destroy);
 var accountType = require('./controllers/accountTypeController.js');
 
 app.get('/accountType', accountType.list);
+app.get('/accountType_all', accountType.listAll);
 app.get('/accountType/:id', accountType.show);
 app.post('/accountType', accountType.post);
+app.put('/accountType/:id', accountType.edit);
+app.delete('/accountType/:id', accountType.destroy);
 
 var transactionType = require('./controllers/transactionTypeController.js');
 
 app.get('/transactionType', transactionType.list);
+app.get('/transactionType/automatic/account', transactionType.listAutomatic_Account);
 app.get('/transactionType/listType/:listType', transactionType.listType);
 app.get('/transactionType/:id', transactionType.show);
 app.put('/transactionType/:id', transactionType.edit);
@@ -66,10 +76,34 @@ var transaction = require('./controllers/transactionController.js');
 
 app.get('/transaction', transaction.list);
 app.get('/transaction/listAccount/:listAccount', transaction.listAccount);
+app.get('/transaction/listAccountCount/:listAccount', transaction.listAccountCount);
 app.get('/transaction/:id', transaction.show);
 app.put('/transaction/:id', transaction.edit);
 app.post('/transaction', transaction.post);
 app.delete('/transaction/:id', transaction.destroy);
+
+var quotaPayment = require('./controllers/quotaPaymentController.js');
+
+app.get('/quotaPayment', quotaPayment.listAll);
+app.get('/quotaPayment/count', quotaPayment.listAllCount);
+app.get('/quotaPayment/account/:account', quotaPayment.listAcount);
+app.get('/quotaPayment/account/count/:account', quotaPayment.listAcountCount);
+app.get('/quotaPayment/:id', quotaPayment.show);
+app.post('/quotaPayment', quotaPayment.post);
+app.put('/quotaPayment/:id', quotaPayment.edit);
+app.delete('/quotaPayment/:id', quotaPayment.destroy);
+
+
+var quota = require('./controllers/quotaController.js');
+
+app.get('/quota/:quotaPayment', quota.listAll);
+app.get('/quota/count/:quotaPayment', quota.listCount);
+app.get('/quota/count/paid/:quotaPayment', quota.listCountPaid);
+app.get('/quota/paid/:id', quota.show);
+app.post('/quota/paid/:id', quota.post);
+app.put('/quota/paid/:id', quota.edit);
+app.delete('/quota/paid/:id', quota.destroy);
+
 
 app.use(function(req, res, next){
   res.status(404);

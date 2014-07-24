@@ -3,10 +3,13 @@ var mongoose = require('mongoose')
    ,ObjectId = Schema.ObjectId;
  
 var quotaPaymentSchema = new Schema({
-    amountQuota: Number,
+    concept: String,
     quantityQuota: Number,
-    quotas : [{ type: Schema.Types.ObjectId, ref: 'Quota' }],
-    id_Account : { type: Schema.Types.ObjectId, ref: 'Account' }
+    amount: Number,
+    paid: Boolean,
+    My_Date : { type: Schema.Types.ObjectId, ref: 'My_Date' },
+    Place : { type: Schema.Types.ObjectId, ref: 'Place' },
+    Account : { type: Schema.Types.ObjectId, ref: 'Account' }
 });
  
 module.exports = mongoose.model('QuotaPayment', quotaPaymentSchema);

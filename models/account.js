@@ -3,7 +3,8 @@ var mongoose = require('mongoose')
  
 var accountSchema = new Schema({
     name: String,
-    balance: Number,
+    balance1: Number,
+    balance2: Number,
     id_AccountType: { type: Schema.Types.ObjectId, ref: 'AccountType' }
 });
  
